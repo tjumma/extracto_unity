@@ -15,7 +15,7 @@ namespace Extracto
 
         private void Start()
         {
-            WebGLInput.captureAllKeyboardInput = false;
+            // WebGLInput.captureAllKeyboardInput = false;
         }
     }
 }
