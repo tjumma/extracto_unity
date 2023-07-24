@@ -8,16 +8,20 @@ namespace Extracto
     {
         [SerializeField] private Camera mainCamera;
         [SerializeField] private ReactToUnity reactToUnity;
+        [SerializeField] private UnityToReact unityToReact;
+        [SerializeField] private UIGame ui;
         
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterComponent(mainCamera);
             builder.RegisterComponent(reactToUnity);
+            builder.RegisterComponent(unityToReact);
+            builder.RegisterComponent(ui);
         }
 
         private void Start()
         {
-            WebGLInput.captureAllKeyboardInput = false;
+            // WebGLInput.captureAllKeyboardInput = false;
         }
     }
 }
