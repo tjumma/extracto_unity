@@ -10,7 +10,7 @@ namespace Extracto
         [SerializeField] private ReactToUnity reactToUnity;
         [SerializeField] private UnityToReact unityToReact;
         [SerializeField] private UIGame ui;
-        
+
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterComponent(mainCamera);
@@ -21,7 +21,9 @@ namespace Extracto
 
         private void Start()
         {
-            // WebGLInput.captureAllKeyboardInput = false;
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+            WebGLInput.captureAllKeyboardInput = false;
+#endif
         }
     }
 }

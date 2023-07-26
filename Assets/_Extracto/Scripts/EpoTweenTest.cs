@@ -10,8 +10,6 @@ namespace Extracto
         
         void Start()
         {
-            Debug.Log("Start");
-            
             outlinable.FrontParameters.DOColor(new Color(0, 0, 1, 0), 5.0f);
             outlinable.FrontParameters.DODilateShift(0.0f, 5.0f);
             outlinable.FrontParameters.DOBlurShift(0.0f, 3.0f);
