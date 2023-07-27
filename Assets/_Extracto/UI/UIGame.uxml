@@ -1,5 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); justify-content: center; align-self: center;">
+    <ui:VisualElement name="welcome-screen" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.81); justify-content: center; align-self: center; -unity-text-align: upper-left; width: 100%; height: 100%;">
+        <ui:VisualElement name="init-player-panel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); justify-content: center; width: 50%; align-self: center;">
+            <ui:Label tabindex="-1" text="Greetings, adventurer! &#10;What do they call you in this galaxy?" display-tooltip-when-elided="true" name="welcome-label" style="font-size: 30px; -unity-text-align: upper-center; color: rgb(255, 255, 255); margin-bottom: 25px;" />
+            <ui:TextField picking-mode="Ignore" name="player-name-field" keyboard-type="Social" style="font-size: 30px; -unity-text-align: upper-center; justify-content: center; margin-top: 10px; margin-bottom: 10px; padding-bottom: 20px; padding-top: 10px; width: 50%; align-self: center;" />
+            <ui:Button text="Create player" display-tooltip-when-elided="true" name="init-player-button" style="font-size: 30px; width: 50%; position: relative; top: auto; padding-top: 20px; padding-bottom: 20px; align-self: center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); justify-content: center; align-self: center; visibility: visible; display: none;">
         <ui:Button text="Increment Counter" display-tooltip-when-elided="true" name="increment-counter-button" style="font-size: 30px; width: auto; position: relative; top: auto;" />
     </ui:VisualElement>
 </ui:UXML>

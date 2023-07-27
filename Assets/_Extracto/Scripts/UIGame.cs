@@ -12,6 +12,10 @@ namespace Extracto
         private UnityToReact _unityToReact;
 
         private VisualElement _root;
+        private VisualElement _initPlayerPanel;
+        private TextField _playerNameField;
+        private Button _initPlayerButton;
+
         private Button _incrementCounterButton;
 
         [Inject]
@@ -23,17 +27,31 @@ namespace Extracto
         void Awake()
         {
             _root = document.rootVisualElement;
+            _initPlayerPanel = _root.Q<VisualElement>("init-player-panel");
+            _playerNameField = _initPlayerPanel.Q<TextField>("player-name-field");
+            _initPlayerButton = _initPlayerPanel.Q<Button>("init-player-button");
+            
             _incrementCounterButton = _root.Q<Button>("increment-counter-button");
         }
 
         private void OnEnable()
         {
+            _initPlayerButton.clicked += OnInitPlayerButtonClicked;
+            
             _incrementCounterButton.clicked += OnIncrementCounterButtonClicked;
         }
         
         private void OnDisable()
         {
+            _initPlayerButton.clicked -= OnInitPlayerButtonClicked;
+            
             _incrementCounterButton.clicked -= OnIncrementCounterButtonClicked;
+        }
+
+        private void OnInitPlayerButtonClicked()
+        {
+            Debug.Log("InitPlayerButton clicked");
+            _unityToReact.InvokeInitPlayer(_playerNameField.value);
         }
 
         private void OnIncrementCounterButtonClicked()
