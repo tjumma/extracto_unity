@@ -21,7 +21,6 @@ namespace Extracto
             builder.Register<Player>(Lifetime.Singleton);
 
             builder.RegisterEntryPoint<AppController>();
-            builder.RegisterEntryPoint<PlayerSubscriber>();
         }
 
         private void Start()
