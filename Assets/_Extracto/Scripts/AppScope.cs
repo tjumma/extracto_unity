@@ -17,13 +17,16 @@ namespace Extracto
             builder.RegisterComponent(reactToUnity);
             builder.RegisterComponent(unityToReact);
             builder.RegisterComponent(ui);
+            
+            builder.Register<Player>(Lifetime.Singleton);
+
+            builder.RegisterEntryPoint<AppController>();
+            builder.RegisterEntryPoint<PlayerSubscriber>();
         }
 
         private void Start()
         {
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
-            WebGLInput.captureAllKeyboardInput = false;
-#endif
+            unityToReact.InvokeGameReady();
         }
     }
 }

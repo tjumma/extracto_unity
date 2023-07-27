@@ -1,4 +1,7 @@
 mergeInto(LibraryManager.library, {
+  GameReady: function () {
+    window.dispatchReactUnityEvent("GameReady");
+  },
   IncrementCounter: function (message) {
     window.dispatchReactUnityEvent("IncrementCounterFromUnity", UTF8ToString(message));
   },

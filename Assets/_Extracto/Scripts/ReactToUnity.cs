@@ -1,10 +1,19 @@
 using Newtonsoft.Json;
 using UnityEngine;
+using VContainer;
 
 namespace Extracto
 {
     public class ReactToUnity : MonoBehaviour
     {
+        private Player _player;
+        
+        [Inject]
+        public void Construct(Player player)
+        {
+            _player = player;
+        }
+        
         public void OnWalletConnected(string publicKey)
         {
             Debug.Log($"Unity knows that wallet {publicKey} was connected");
@@ -13,9 +22,7 @@ namespace Extracto
         public void OnPlayerDataUpdated(string playerDataJson)
         {
             PlayerData playerData = JsonConvert.DeserializeObject<PlayerData>(playerDataJson);
-            Debug.Log(playerData.name);
-            Debug.Log(playerData.authority);
-            Debug.Log(playerData.runsFinished);
+            _player.PlayerDataRP.Value = playerData;
         }
     }
 }
