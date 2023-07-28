@@ -20,7 +20,7 @@ namespace Extracto
         private Label _nameLabel;
         private Label _runsFinishedLabel;
         private VisualElement _gameButtonsPanel;
-        private Button _incrementCounterButton;
+        private Button _incrementRunButton;
 
         [Inject]
         public void Construct(UnityToReact unityToReact, Player player)
@@ -46,18 +46,18 @@ namespace Extracto
             _runsFinishedLabel = _playerDataPanel.Q<Label>("runs-finished-label");
             
             _gameButtonsPanel = _mainMenuScreen.Q<VisualElement>("game-buttons-panel");
-            _incrementCounterButton = _gameButtonsPanel.Q<Button>("increment-counter-button");
+            _incrementRunButton = _gameButtonsPanel.Q<Button>("increment-run-button");
         }
 
         private void OnEnable()
         {
-            _incrementCounterButton.clicked += OnIncrementCounterButtonClicked;
+            _incrementRunButton.clicked += OnIncrementRunButtonClicked;
             _player.OnPlayerDataUpdated += OnPlayerDataUpdated;
         }
         
         private void OnDisable()
         {
-            _incrementCounterButton.clicked -= OnIncrementCounterButtonClicked;
+            _incrementRunButton.clicked -= OnIncrementRunButtonClicked;
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
         }
 
@@ -71,10 +71,10 @@ namespace Extracto
             _runsFinishedLabel.text = $"Runs finished: {playerData.runsFinished}";
         }
 
-        private void OnIncrementCounterButtonClicked()
+        private void OnIncrementRunButtonClicked()
         {
-            Debug.Log("IncrementCounterButton clicked");
-            _unityToReact.InvokeIncrementCounter("testerino");
+            Debug.Log("IncrementRunButton clicked");
+            _unityToReact.InvokeIncrementRun("testerino");
         }
     }
 }

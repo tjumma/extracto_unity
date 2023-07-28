@@ -6,7 +6,7 @@
             <ui:Label tabindex="-1" text="Runs finished:" display-tooltip-when-elided="true" name="runs-finished-label" style="font-size: 20px; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
         <ui:VisualElement name="game-buttons-panel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); justify-content: center; align-self: center; visibility: visible; display: flex; position: relative;">
-            <ui:Button text="Increment Counter" display-tooltip-when-elided="true" name="increment-counter-button" style="font-size: 30px; width: auto; position: relative; top: auto;" />
+            <ui:Button text="Increment Run" display-tooltip-when-elided="true" name="increment-run-button" style="font-size: 30px; width: auto; position: relative; top: auto;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

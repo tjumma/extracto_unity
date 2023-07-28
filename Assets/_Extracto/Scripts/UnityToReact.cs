@@ -9,7 +9,7 @@ namespace Extracto
         private static extern void GameReady();
 
         [DllImport("__Internal")]
-        private static extern void IncrementCounter(string message);
+        private static extern void IncrementRun(string message);
 
         [DllImport("__Internal")]
         private static extern void InitPlayer(string playerName);
@@ -24,12 +24,12 @@ namespace Extracto
 #endif
         }
 
-        public void InvokeIncrementCounter(string message)
+        public void InvokeIncrementRun(string message)
         {
-            Debug.Log("InvokeIncrementCounter");
+            Debug.Log("InvokeIncrementRun");
 
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-            IncrementCounter(message);
+            IncrementRun(message);
 #endif
         }
 
