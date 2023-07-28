@@ -19,8 +19,9 @@ namespace Extracto
         private Label _publicKeyLabel;
         private Label _nameLabel;
         private Label _runsFinishedLabel;
+        private Label _bestScoreLabel;
         private VisualElement _gameButtonsPanel;
-        private Button _incrementRunButton;
+        private Button _startNewRunButton;
 
         [Inject]
         public void Construct(UnityToReact unityToReact, Player player)
@@ -44,20 +45,21 @@ namespace Extracto
             _publicKeyLabel = _playerDataPanel.Q<Label>("public-key-label");
             _nameLabel = _playerDataPanel.Q<Label>("name-label");
             _runsFinishedLabel = _playerDataPanel.Q<Label>("runs-finished-label");
+            _bestScoreLabel = _playerDataPanel.Q<Label>("best-score-label");
             
             _gameButtonsPanel = _mainMenuScreen.Q<VisualElement>("game-buttons-panel");
-            _incrementRunButton = _gameButtonsPanel.Q<Button>("increment-run-button");
+            _startNewRunButton = _gameButtonsPanel.Q<Button>("start-new-run-button");
         }
 
         private void OnEnable()
         {
-            _incrementRunButton.clicked += OnIncrementRunButtonClicked;
+            _startNewRunButton.clicked += OnStartNewRunButtonClicked;
             _player.OnPlayerDataUpdated += OnPlayerDataUpdated;
         }
         
         private void OnDisable()
         {
-            _incrementRunButton.clicked -= OnIncrementRunButtonClicked;
+            _startNewRunButton.clicked -= OnStartNewRunButtonClicked;
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
         }
 
@@ -69,12 +71,13 @@ namespace Extracto
             _publicKeyLabel.text = $"Public key: {playerData.publicKey}";
             _nameLabel.text = $"Name: {playerData.name}";
             _runsFinishedLabel.text = $"Runs finished: {playerData.runsFinished}";
+            _bestScoreLabel.text = $"Best score: {playerData.bestScore}";
         }
 
-        private void OnIncrementRunButtonClicked()
+        private void OnStartNewRunButtonClicked()
         {
-            Debug.Log("IncrementRunButton clicked");
-            _unityToReact.InvokeIncrementRun("testerino");
+            Debug.Log("StartNewRun button clicked");
+            _unityToReact.InvokeStartNewRun();
         }
     }
 }

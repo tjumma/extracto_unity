@@ -4,31 +4,31 @@ using VContainer;
 
 namespace Extracto
 {
-    public class MainMenuState : StateBehaviour
+    public class GameState : StateBehaviour
     {
-        public override string StateID => "MainMenu";
+        public override string StateID => "Game";
         
-        private UIMainMenu _uiMainMenu;
         private Player _player;
+        private UIGame _uiGame;
         
         [Inject]
-        public void Construct(UIMainMenu uiMainMenu, Player player)
+        public void Construct(Player player, UIGame uiGame)
         {
-            _uiMainMenu = uiMainMenu;
             _player = player;
+            _uiGame = uiGame;
         }
         
         protected override void OnEnterState()
         {
-            Debug.Log("Enter MainMenu state");
-            _uiMainMenu.SetEnabled(true);
+            Debug.Log("Enter Game state");
+            _uiGame.SetEnabled(true);
             _player.OnPlayerDataUpdated += OnPlayerDataUpdated;
         }
 
         protected override void OnExitState()
         {
-            Debug.Log("Exit MainMenu state");
-            _uiMainMenu.SetEnabled(false);
+            Debug.Log("Exit Game state");
+            _uiGame.SetEnabled(false);
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
         }
         
@@ -38,8 +38,8 @@ namespace Extracto
                 StateMachine.TriggerByLabel("connectWallet");
             else if (string.IsNullOrEmpty(playerData.name))
                 StateMachine.TriggerByLabel("createPlayer");
-            else if (playerData.isInRun)
-                StateMachine.TriggerByLabel("game");
+            else if (!playerData.isInRun)
+                StateMachine.TriggerByLabel("mainMenu");
         }
     }
 }

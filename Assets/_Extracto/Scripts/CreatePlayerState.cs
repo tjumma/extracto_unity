@@ -7,22 +7,22 @@ namespace Extracto
     public class CreatePlayerState : StateBehaviour
     {
         public override string StateID => "CreatePlayer";
-        
+
         private UICreatePlayer _uiCreatePlayer;
         private Player _player;
-        
+
         [Inject]
         public void Construct(UICreatePlayer uiCreatePlayer, Player player)
         {
             _uiCreatePlayer = uiCreatePlayer;
             _player = player;
         }
-        
+
         protected override void OnEnterState()
         {
             Debug.Log("Enter CreatePlayer state");
             _uiCreatePlayer.SetEnabled(true);
-            
+
             _player.OnPlayerDataUpdated += OnPlayerDataUpdated;
         }
 
@@ -30,10 +30,10 @@ namespace Extracto
         {
             Debug.Log("Exit CreatePlayer state");
             _uiCreatePlayer.SetEnabled(false);
-            
+
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
         }
-        
+
         private void OnPlayerDataUpdated(PlayerData playerData)
         {
             if (string.IsNullOrEmpty(playerData.publicKey))
@@ -43,8 +43,10 @@ namespace Extracto
             }
             else if (!string.IsNullOrEmpty(playerData.name))
             {
-                Debug.Log("can transition to MainMenu");
-                StateMachine.TriggerByLabel("mainMenu");
+                if (!playerData.isInRun)
+                    StateMachine.TriggerByLabel("mainMenu");
+                else
+                    StateMachine.TriggerByLabel("game");
             }
         }
     }

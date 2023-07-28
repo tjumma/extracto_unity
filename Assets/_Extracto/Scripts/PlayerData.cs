@@ -8,5 +8,7 @@ namespace Extracto
         public string publicKey;
         public string name;
         public int runsFinished;
+        public int bestScore;
+        public bool isInRun;
     }
 }

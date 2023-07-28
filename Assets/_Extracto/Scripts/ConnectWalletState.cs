@@ -37,10 +37,13 @@ namespace Extracto
         {
             if (string.IsNullOrEmpty(playerData.publicKey))
                 return;
-            else if (string.IsNullOrEmpty(playerData.name))
+            
+            if (string.IsNullOrEmpty(playerData.name))
                 StateMachine.TriggerByLabel("createPlayer");
-            else
+            else if (!playerData.isInRun)
                 StateMachine.TriggerByLabel("mainMenu");
+            else
+                StateMachine.TriggerByLabel("game");
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Extracto
         [SerializeField] private UIConnectWallet uiConnectWallet;
         [SerializeField] private UICreatePlayer uiCreatePlayer;
         [SerializeField] private UIMainMenu uiMainMenu;
+        [SerializeField] private UIGame uiGame;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -24,6 +25,7 @@ namespace Extracto
             builder.RegisterComponent(uiConnectWallet);
             builder.RegisterComponent(uiCreatePlayer);
             builder.RegisterComponent(uiMainMenu);
+            builder.RegisterComponent(uiGame);
 
             builder.Register<Player>(Lifetime.Singleton);
 
