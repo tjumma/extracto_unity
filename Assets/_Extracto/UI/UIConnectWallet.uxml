@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="connect-wallet-screen" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.81); justify-content: center; align-self: center; -unity-text-align: upper-left; width: 100%; height: 100%; display: none; position: absolute; opacity: 1;">
+        <ui:Label tabindex="-1" text="Connect wallet" display-tooltip-when-elided="true" name="connect-wallet-label" style="font-size: 50px; -unity-text-align: upper-center; color: rgb(255, 255, 255);" />
+    </ui:VisualElement>
+</ui:UXML>

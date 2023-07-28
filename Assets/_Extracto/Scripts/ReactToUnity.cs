@@ -13,16 +13,11 @@ namespace Extracto
         {
             _player = player;
         }
-        
-        public void OnWalletConnected(string publicKey)
-        {
-            Debug.Log($"Unity knows that wallet {publicKey} was connected");
-        }
 
-        public void OnPlayerDataUpdated(string playerDataJson)
+        public void OnPlayerUpdated(string playerDataJson)
         {
             PlayerData playerData = JsonConvert.DeserializeObject<PlayerData>(playerDataJson);
-            _player.PlayerDataRP.Value = playerData;
+            _player.PlayerData = playerData;
         }
     }
 }

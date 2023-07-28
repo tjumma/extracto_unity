@@ -4,7 +4,7 @@
     using UnityEditor;
     using UnityEngine;
 
-    [CustomEditor(typeof(StateMachine))]
+    [CustomEditor(typeof(StateMachine), true)]
     public class StateMachineInspector : Editor
     {
         //Foldout values

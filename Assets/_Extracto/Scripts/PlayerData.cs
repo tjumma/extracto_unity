@@ -5,7 +5,7 @@ namespace Extracto
     [Serializable]
     public class PlayerData
     {
-        public string authority;
+        public string publicKey;
         public string name;
         public int runsFinished;
     }
