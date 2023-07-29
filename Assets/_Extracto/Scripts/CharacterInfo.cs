@@ -8,5 +8,7 @@ namespace Extracto
         public int id;
         public int alignment;
         public int characterType;
+        public int cooldown;
+        public int cooldownTimer;
     }
 }

@@ -1,0 +1,23 @@
+.cooldown-pb .unity-progress-bar__progress {
+    background-color: yellow;
+    margin: 0;
+}
+
+.cooldown-pb .unity-progress-bar__container {
+    flex-grow: 1;
+    flex-shrink: 0;
+    height: 100%;
+    max-height: none;
+}
+
+.health-pb .unity-progress-bar__progress {
+    background-color: limegreen;
+    margin: 0;
+}
+
+.health-pb .unity-progress-bar__container {
+    flex-grow: 1;
+    flex-shrink: 0;
+    height: 100%;
+    max-height: none;
+}

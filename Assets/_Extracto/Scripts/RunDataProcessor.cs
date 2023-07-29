@@ -7,6 +7,8 @@ namespace Extracto
     public class RunDataProcessor : MonoBehaviour
     {
         [SerializeField] private CharacterSpawner characterSpawner;
+        [SerializeField] private SlotController slotController;
+        
         private Dictionary<int, Character> charactersById = new Dictionary<int, Character>();
 
         private RunData _oldRunData;
@@ -71,11 +73,12 @@ namespace Extracto
                     continue;
                 
                 var slotIndex = newRunData.slots.IndexOf(characterInfo);
+                var characterUI = slotController.GetCharacterUI(slotIndex);
                 var newCharacter = characterSpawner.SpawnCharacterInSlot(characterInfo, slotIndex);
 
                 if (newCharacter != null)
                 {
-                    newCharacter.InitData(characterInfo);
+                    newCharacter.InitData(characterInfo, characterUI);
                     charactersById.Add(idToSpawn, newCharacter);
                 }
             }
