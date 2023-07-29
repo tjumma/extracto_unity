@@ -7,14 +7,18 @@ namespace Extracto
     public class GameState : StateBehaviour
     {
         public override string StateID => "Game";
+
+        [SerializeField] private RunDataProcessor runDataProcessor;
         
         private Player _player;
+        private Run _run;
         private UIGame _uiGame;
         
         [Inject]
-        public void Construct(Player player, UIGame uiGame)
+        public void Construct(Player player, Run run, UIGame uiGame)
         {
             _player = player;
+            _run = run;
             _uiGame = uiGame;
         }
         
@@ -23,6 +27,7 @@ namespace Extracto
             Debug.Log("Enter Game state");
             _uiGame.SetEnabled(true);
             _player.OnPlayerDataUpdated += OnPlayerDataUpdated;
+            _run.OnRunDataUpdated += OnRunDataUpdated;
         }
 
         protected override void OnExitState()
@@ -30,6 +35,7 @@ namespace Extracto
             Debug.Log("Exit Game state");
             _uiGame.SetEnabled(false);
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
+            _run.OnRunDataUpdated -= OnRunDataUpdated;
         }
         
         private void OnPlayerDataUpdated(PlayerData playerData)
@@ -40,6 +46,12 @@ namespace Extracto
                 StateMachine.TriggerByLabel("createPlayer");
             else if (!playerData.isInRun)
                 StateMachine.TriggerByLabel("mainMenu");
+        }
+        
+        private void OnRunDataUpdated(RunData runData)
+        {
+            Debug.Log("GameState OnRunDataUpdated");
+            runDataProcessor.Process(runData);
         }
     }
 }

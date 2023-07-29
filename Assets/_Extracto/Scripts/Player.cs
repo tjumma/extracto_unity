@@ -8,7 +8,7 @@ namespace Extracto
         
         public PlayerData PlayerData
         {
-            get { return _playerData;  }
+            get => _playerData;
             set
             {
                 _playerData = value;

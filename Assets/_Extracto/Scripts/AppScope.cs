@@ -28,6 +28,7 @@ namespace Extracto
             builder.RegisterComponent(uiGame);
 
             builder.Register<Player>(Lifetime.Singleton);
+            builder.Register<Run>(Lifetime.Singleton);
 
             builder.RegisterEntryPoint<AppController>();
         }

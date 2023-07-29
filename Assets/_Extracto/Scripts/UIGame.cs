@@ -10,6 +10,7 @@ namespace Extracto
         
         private UnityToReact _unityToReact;
         private Player _player;
+        private Run _run;
 
         private VisualElement _root;
         
@@ -22,10 +23,11 @@ namespace Extracto
         private Button _finishRunButton;
         
         [Inject]
-        public void Construct(UnityToReact unityToReact, Player player)
+        public void Construct(UnityToReact unityToReact, Player player, Run run)
         {
             _unityToReact = unityToReact;
             _player = player;
+            _run = run;
         }
         
         public void SetEnabled(bool isEnabled)
@@ -50,13 +52,20 @@ namespace Extracto
         private void OnEnable()
         {
             _finishRunButton.clicked += OnFinishRunButtonClicked;
+            _run.OnRunDataUpdated += OnRunDataUpdated;
         }
 
         private void OnDisable()
         {
             _finishRunButton.clicked -= OnFinishRunButtonClicked;
+            _run.OnRunDataUpdated += OnRunDataUpdated;
         }
-        
+
+        private void OnRunDataUpdated(RunData runData)
+        {
+            _scoreLabel.text = $"Score: ${runData.score}";
+        }
+
         private void OnFinishRunButtonClicked()
         {
             Debug.Log("FinishRun button clicked");
