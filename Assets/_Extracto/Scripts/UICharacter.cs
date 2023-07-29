@@ -12,6 +12,13 @@ namespace Extracto
         
         private ProgressBar _cooldownPB;
         private ProgressBar _healthPB;
+        
+        public void SetEnabled(bool isEnabled)
+        {
+            Debug.Log($"SetEnabled: {isEnabled}");
+            _characterScreen.style.display = isEnabled ? DisplayStyle.Flex : DisplayStyle.None;
+            GetComponent<MeshRenderer>().enabled = isEnabled;
+        }
 
         void Awake()
         {

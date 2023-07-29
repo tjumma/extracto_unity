@@ -36,6 +36,8 @@ namespace Extracto
             _uiGame.SetEnabled(false);
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
             _run.OnRunDataUpdated -= OnRunDataUpdated;
+
+            runDataProcessor.OnGameExit();
         }
         
         private void OnPlayerDataUpdated(PlayerData playerData)

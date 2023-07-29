@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/_Extracto/UI/CooldownStyle.uss?fileID=7433441132597879392&amp;guid=6870b4022ef80430f9dd3e28700db5a7&amp;type=3#CooldownStyle" />
-    <ui:VisualElement name="character-screen" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-        <ui:ProgressBar value="100" name="cooldown-progress-bar" class="cooldown-pb" style="height: 25px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
-        <ui:ProgressBar value="100" name="health-progress-bar" class="health-pb" style="height: 25px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
-    </ui:VisualElement>
-</ui:UXML>

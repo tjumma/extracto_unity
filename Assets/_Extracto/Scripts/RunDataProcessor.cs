@@ -61,7 +61,8 @@ namespace Extracto
             //delete those whose ids are not in newRunData
             foreach (var idToKill in charactersToKill)
             {
-                Destroy(charactersById[idToKill].gameObject);
+                var character = charactersById[idToKill];
+                character.Kill();
                 charactersById.Remove(idToKill);
             }
 
@@ -91,6 +92,16 @@ namespace Extracto
                     continue;
                 charactersById[idToUpdate].UpdateData(characterInfo);
             }
+        }
+
+        public void OnGameExit()
+        {
+            foreach (var idCharacter in charactersById)
+            {
+                idCharacter.Value.Kill();
+            }
+
+            charactersById = new Dictionary<int, Character>();
         }
     }
 }

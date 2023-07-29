@@ -10,12 +10,19 @@ namespace Extracto
         {
             _ui = ui;
             
+            _ui.SetEnabled(true);
             _ui.ApplyData(characterInfo);
         }
         
         public void UpdateData(CharacterInfo characterInfo)
         {
             _ui.ApplyData(characterInfo);
+        }
+
+        public void Kill()
+        {
+            _ui.SetEnabled(false);
+            Destroy(this.gameObject);
         }
     }
 }
