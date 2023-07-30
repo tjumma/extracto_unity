@@ -19,7 +19,6 @@ namespace Extracto
         
         public void SetEnabled(bool isEnabled)
         {
-            Debug.Log($"SetEnabled: {isEnabled}");
             _characterScreen.style.display = isEnabled ? DisplayStyle.Flex : DisplayStyle.None;
             GetComponent<MeshRenderer>().enabled = isEnabled;
         }
@@ -37,7 +36,6 @@ namespace Extracto
 
         public void ApplyData(CharacterInfo characterInfo)
         {
-            Debug.Log($"cooldown is {(float)((float)characterInfo.cooldownTimer / (float)characterInfo.cooldown)}");
             _cooldownPB.value = (float)((float)characterInfo.cooldownTimer / (float)characterInfo.cooldown) * 100;
             _cooldownLabel.text = $"Next action: {characterInfo.cooldownTimer} / {characterInfo.cooldown}";
             _healthPB.value = (float)((float)characterInfo.health / (float)characterInfo.maxHealth) * 100;

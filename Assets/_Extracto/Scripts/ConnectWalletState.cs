@@ -20,7 +20,6 @@ namespace Extracto
         
         protected override void OnEnterState()
         {
-            Debug.Log("Enter ConnectWallet state");
             _uiConnectWallet.SetEnabled(true);
 
             _player.OnPlayerDataUpdated += OnPlayerDataUpdated;
@@ -28,7 +27,6 @@ namespace Extracto
 
         protected override void OnExitState()
         {
-            Debug.Log("Exit ConnectWallet state");
             _uiConnectWallet.SetEnabled(false);
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
         }

@@ -22,7 +22,6 @@ namespace Extracto
 
         public void InvokeGameReady()
         {
-            Debug.Log("InvokeGameReady");
 
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
             WebGLInput.captureAllKeyboardInput = false;
@@ -32,7 +31,6 @@ namespace Extracto
         
         public void InvokeInitPlayer(string playerName)
         {
-            Debug.Log("InvokeInitPlayer");
 
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
             InitPlayer(playerName);
@@ -41,7 +39,6 @@ namespace Extracto
 
         public void InvokeStartNewRun()
         {
-            Debug.Log("InvokeStartNewRun");
 
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
             StartNewRun();
@@ -50,7 +47,6 @@ namespace Extracto
         
         public void InvokeFinishRun()
         {
-            Debug.Log("InvokeFinishRun");
 
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
             FinishRun();
@@ -59,7 +55,6 @@ namespace Extracto
         
         public void InvokeUpgrade(int cardId, int slotId)
         {
-            Debug.Log("InvokeUpgrade");
 
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
             Upgrade(cardId, slotId);

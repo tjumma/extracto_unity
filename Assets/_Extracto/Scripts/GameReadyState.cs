@@ -20,14 +20,12 @@ namespace Extracto
 
         protected override void OnEnterState()
         {
-            Debug.Log("Enter GameReady state");
             _player.OnPlayerDataUpdated += OnPlayerDataUpdated;
             _unityToReact.InvokeGameReady();
         }
 
         protected override void OnExitState()
         {
-            Debug.Log("Exit GameReady state");
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
         }
 

@@ -69,7 +69,6 @@ namespace Extracto
 
         private void OnFinishRunButtonClicked()
         {
-            Debug.Log("FinishRun button clicked");
             _unityToReact.InvokeFinishRun();
         }
     }

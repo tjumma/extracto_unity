@@ -20,14 +20,12 @@ namespace Extracto
         
         protected override void OnEnterState()
         {
-            Debug.Log("Enter MainMenu state");
             _uiMainMenu.SetEnabled(true);
             _player.OnPlayerDataUpdated += OnPlayerDataUpdated;
         }
 
         protected override void OnExitState()
         {
-            Debug.Log("Exit MainMenu state");
             _uiMainMenu.SetEnabled(false);
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
         }

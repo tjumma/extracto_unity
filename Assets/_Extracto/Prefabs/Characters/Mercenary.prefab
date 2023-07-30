@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f6487f4d94d354bdca550b9499124568, type: 2}
+    - target: {fileID: 512506106991999978, guid: 8e120e0631295bf4d8304ebac8213d2f,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5907848883924640144, guid: 8e120e0631295bf4d8304ebac8213d2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -69,7 +74,24 @@ PrefabInstance:
       value: Mercenary
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3569854270809482198, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 7373599259217332035, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 4597383565708235409, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 2765001161959659674, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 8807992488689980066, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 2607576772911889337, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 7984503555470970053, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 7424243530201198654, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 5142484563755196615, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 6898328582424623125, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 5257449199479892893, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 1268703501783277263, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 6297874180698900230, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 6487286941581661977, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 9123130301059592249, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 8483797098588391899, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
+    - {fileID: 2095967422322069764, guid: 8e120e0631295bf4d8304ebac8213d2f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6536752684156091178, guid: 8e120e0631295bf4d8304ebac8213d2f,
@@ -95,3 +117,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce19e0167f2049a0b582da9ed31827e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 5909959293904272776}
+  CurrentInfo:
+    id: 0
+    alignment: 0
+    characterType: 0
+    cooldown: 0
+    cooldownTimer: 0
+    maxHealth: 0
+    health: 0
+    attackDamage: 0
+    state: 0
+  CurrentSlotIndex: 0
+--- !u!95 &5909959293904272776 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 512506106991999978, guid: 8e120e0631295bf4d8304ebac8213d2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6131841368463984226}
+  m_PrefabAsset: {fileID: 0}

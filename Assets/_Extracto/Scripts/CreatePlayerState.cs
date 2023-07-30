@@ -20,7 +20,6 @@ namespace Extracto
 
         protected override void OnEnterState()
         {
-            Debug.Log("Enter CreatePlayer state");
             _uiCreatePlayer.SetEnabled(true);
 
             _player.OnPlayerDataUpdated += OnPlayerDataUpdated;
@@ -28,7 +27,6 @@ namespace Extracto
 
         protected override void OnExitState()
         {
-            Debug.Log("Exit CreatePlayer state");
             _uiCreatePlayer.SetEnabled(false);
 
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
@@ -38,7 +36,6 @@ namespace Extracto
         {
             if (string.IsNullOrEmpty(playerData.publicKey))
             {
-                Debug.Log("empty publicKey, transitioning back to ConnectWallet");
                 StateMachine.TriggerByLabel("connectWallet");
             }
             else if (!string.IsNullOrEmpty(playerData.name))

@@ -56,8 +56,6 @@ namespace Extracto
         {
             ProcessCards(newRunData);
 
-            Debug.Log("RunDataProcessor Process");
-
 
             /////////
 

@@ -68,14 +68,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 4ccc3fe55646a431fba9e66367e9313b, type: 2}
+      objectReference: {fileID: 9100000, guid: d685f34a872ea4e4791cc4139bacbd3e, type: 2}
     - target: {fileID: 95560970436238678, guid: 602e2bafea94085478f3eb9b58f4f7b6,
         type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1063343773164532, guid: 602e2bafea94085478f3eb9b58f4f7b6, type: 3}
+    - {fileID: 1093066400138398, guid: 602e2bafea94085478f3eb9b58f4f7b6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1397897947513670, guid: 602e2bafea94085478f3eb9b58f4f7b6,
@@ -101,3 +103,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce19e0167f2049a0b582da9ed31827e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 9207011834063932449}
+  CurrentInfo:
+    id: 0
+    alignment: 0
+    characterType: 0
+    cooldown: 0
+    cooldownTimer: 0
+    maxHealth: 0
+    health: 0
+    attackDamage: 0
+    state: 0
+  CurrentSlotIndex: 0
+--- !u!95 &9207011834063932449 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95560970436238678, guid: 602e2bafea94085478f3eb9b58f4f7b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 9121583962824413559}
+  m_PrefabAsset: {fileID: 0}

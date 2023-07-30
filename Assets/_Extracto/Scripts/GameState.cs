@@ -24,7 +24,6 @@ namespace Extracto
         
         protected override void OnEnterState()
         {
-            Debug.Log("Enter Game state");
             _uiGame.SetEnabled(true);
             _player.OnPlayerDataUpdated += OnPlayerDataUpdated;
             _run.OnRunDataUpdated += OnRunDataUpdated;
@@ -32,7 +31,6 @@ namespace Extracto
 
         protected override void OnExitState()
         {
-            Debug.Log("Exit Game state");
             _uiGame.SetEnabled(false);
             _player.OnPlayerDataUpdated -= OnPlayerDataUpdated;
             _run.OnRunDataUpdated -= OnRunDataUpdated;
@@ -52,7 +50,6 @@ namespace Extracto
         
         private void OnRunDataUpdated(RunData runData)
         {
-            Debug.Log("GameState OnRunDataUpdated");
             runDataProcessor.Process(runData);
         }
     }

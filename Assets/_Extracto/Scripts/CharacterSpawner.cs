@@ -20,8 +20,7 @@ namespace Extracto
 
                 return go.GetComponent<Character>();
             }
-
-            Debug.Log($"CANT FIND {characterInfo.characterType} TYPE IN PREFABS DICTIONARY");
+            
             return null;
         }
     }

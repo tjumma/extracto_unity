@@ -13,5 +13,6 @@ namespace Extracto
         public int maxHealth;
         public int health;
         public int attackDamage;
+        public int state;
     }
 }

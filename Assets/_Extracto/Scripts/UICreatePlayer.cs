@@ -50,7 +50,6 @@ namespace Extracto
         
         private void OnCreatePlayerButtonClicked()
         {
-            Debug.Log("CreatePlayer button clicked");
             _unityToReact.InvokeInitPlayer(_playerNameField.value);
         }
     }

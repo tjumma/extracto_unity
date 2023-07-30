@@ -26,8 +26,6 @@ namespace Extracto
         
         public void OnRunUpdated(string runDataJson)
         {
-            Debug.Log("ReactToUnity.OnRunUpdated");
-            Debug.Log(runDataJson);
             RunData runData = JsonConvert.DeserializeObject<RunData>(runDataJson);
             _run.RunData = runData;
         }

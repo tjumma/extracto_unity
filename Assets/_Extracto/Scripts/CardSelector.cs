@@ -32,8 +32,6 @@ namespace Extracto
         {
             if (!_hasCardSelected && Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Click");
-
                 Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
@@ -70,7 +68,6 @@ namespace Extracto
                         var slot = hit.transform.GetComponent<SlotBehaviour>();
                         if (slot != null && cardCostByType[CurrentCard.CardType] <= _run.RunData.experience)
                         {
-                            Debug.Log("UPGRADE");
                             selectedPile.Remove(CurrentCard.gameObject);
                             Destroy(CurrentCard.gameObject);
 

@@ -76,7 +76,6 @@ namespace Extracto
 
         private void OnStartNewRunButtonClicked()
         {
-            Debug.Log("StartNewRun button clicked");
             _unityToReact.InvokeStartNewRun();
         }
     }

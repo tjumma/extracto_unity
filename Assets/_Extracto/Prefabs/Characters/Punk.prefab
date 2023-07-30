@@ -68,8 +68,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f6487f4d94d354bdca550b9499124568, type: 2}
+    - target: {fileID: 9112998336071734238, guid: 290fa49872034134bae1fd3c62f36183,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2552537378832039725, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 572177668417755149, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 925373870572577263, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 6432405516479646647, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 7241024482418997552, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 5251687175911853026, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 2251623167611793271, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 5090820047093627557, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 6860204660944548014, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 240749763960322710, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 6720759742119613325, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 1703963252700030193, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 2189629050611537930, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 4482999538386143475, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 2796981010852876321, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 3575048949064057769, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
+    - {fileID: 7561615509387998971, guid: 290fa49872034134bae1fd3c62f36183, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2583979646014296862, guid: 290fa49872034134bae1fd3c62f36183,
@@ -95,3 +117,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce19e0167f2049a0b582da9ed31827e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 8206023824633161298}
+  CurrentInfo:
+    id: 0
+    alignment: 0
+    characterType: 0
+    cooldown: 0
+    cooldownTimer: 0
+    maxHealth: 0
+    health: 0
+    attackDamage: 0
+    state: 0
+  CurrentSlotIndex: 0
+--- !u!95 &8206023824633161298 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9112998336071734238, guid: 290fa49872034134bae1fd3c62f36183,
+    type: 3}
+  m_PrefabInstance: {fileID: 1123217669062849932}
+  m_PrefabAsset: {fileID: 0}
