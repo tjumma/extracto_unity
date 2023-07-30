@@ -16,6 +16,9 @@ namespace Extracto
         
         [DllImport("__Internal")]
         private static extern void FinishRun();
+        
+        [DllImport("__Internal")]
+        private static extern void Upgrade(int cardId, int slotId);
 
         public void InvokeGameReady()
         {
@@ -51,6 +54,15 @@ namespace Extracto
 
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
             FinishRun();
+#endif
+        }
+        
+        public void InvokeUpgrade(int cardId, int slotId)
+        {
+            Debug.Log("InvokeUpgrade");
+
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+            Upgrade(cardId, slotId);
 #endif
         }
     }

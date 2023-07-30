@@ -6,23 +6,59 @@ namespace Extracto
 {
     public class RunDataProcessor : MonoBehaviour
     {
+        [SerializeField] private CardsPile deck;
+        [SerializeField] private CardsPile hand;
+        
+        public GameObject cardPrefab;
+        [SerializeField] public CardSelector cardSelector;
+    
         [SerializeField] private CharacterSpawner characterSpawner;
         [SerializeField] private SlotController slotController;
         
         private Dictionary<int, Character> charactersById = new Dictionary<int, Character>();
+        private Dictionary<int, CardBehaviour> cardsById = new Dictionary<int, CardBehaviour>();
 
         private RunData _oldRunData;
 
-        public void Process(RunData newRunData)
-        {
-            Debug.Log("RunDataProcessor Process");
 
-            foreach (var characterInfo in newRunData.slots)
+        void ProcessCards(RunData newRunData)
+        {
+            var newIds = new List<int>();
+
+            for (int cardSlotIndex = 0; cardSlotIndex < newRunData.cards.Count; cardSlotIndex++)
             {
-                Debug.Log(characterInfo.characterType);
+                var cardInfo = newRunData.cards[cardSlotIndex];
+                newIds.Add(cardInfo.id);
             }
             
+            var oldIds = cardsById.Keys.ToList();
             
+            var cardsToSpawn = new List<int>();
+
+            foreach (var newId in newIds)
+            {
+                if (!oldIds.Contains(newId))
+                    cardsToSpawn.Add(newId);
+            }
+
+            foreach (var cardToSpawnId in cardsToSpawn)
+            {
+                var newCard = Instantiate(cardPrefab).GetComponent<CardBehaviour>();
+                var cardInfo = newRunData.cards.Find(x => x.id == cardToSpawnId);
+                newCard.CardId = cardToSpawnId;
+                newCard.ApplyType(cardInfo.cardType);
+                hand.Add(newCard.gameObject, newRunData.cards.IndexOf(cardInfo));
+                cardsById.Add(cardToSpawnId, newCard);
+            }
+        }
+
+        public void Process(RunData newRunData)
+        {
+            ProcessCards(newRunData);
+
+            Debug.Log("RunDataProcessor Process");
+
+
             /////////
 
             // var newIds = newRunData.slots.Select(characterInfo => characterInfo.id).ToList();
@@ -65,11 +101,19 @@ namespace Extracto
                 character.Kill();
                 charactersById.Remove(idToKill);
             }
+            
+            //update those that intersect
+            foreach (var idToUpdate in charactersToUpdate)
+            {
+                var characterInfo = newRunData.slots.Find(x => x.id == idToUpdate);
+                var newSlotIndex = newRunData.slots.IndexOf(characterInfo);
+                charactersById[idToUpdate].UpdateData(characterInfo, newSlotIndex);
+            }
 
             //add those whose ids are not in oldRunData
             foreach (var idToSpawn in charactersToSpawn)
             {
-                var characterInfo = newRunData.slots[idToSpawn];
+                var characterInfo = newRunData.slots.Find(x => x.id == idToSpawn);
                 if (characterInfo == null)
                     continue;
                 
@@ -79,18 +123,9 @@ namespace Extracto
 
                 if (newCharacter != null)
                 {
-                    newCharacter.InitData(characterInfo, characterUI);
+                    newCharacter.InitData(characterInfo, characterUI, slotController, slotIndex);
                     charactersById.Add(idToSpawn, newCharacter);
                 }
-            }
-
-            //update those that intersect
-            foreach (var idToUpdate in charactersToUpdate)
-            {
-                var characterInfo = newRunData.slots[idToUpdate];
-                if (characterInfo == null)
-                    continue;
-                charactersById[idToUpdate].UpdateData(characterInfo);
             }
         }
 
@@ -102,6 +137,18 @@ namespace Extracto
             }
 
             charactersById = new Dictionary<int, Character>();
+            
+            foreach (var idCard in cardsById)
+            {
+                var card = idCard.Value;
+                if (card != null)
+                {
+                    hand.Remove(card.gameObject);
+                    Destroy(card.gameObject);
+                }
+            }
+
+            cardsById = new Dictionary<int, CardBehaviour>();
         }
     }
 }

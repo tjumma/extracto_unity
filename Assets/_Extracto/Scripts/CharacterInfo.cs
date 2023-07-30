@@ -10,5 +10,8 @@ namespace Extracto
         public int characterType;
         public int cooldown;
         public int cooldownTimer;
+        public int maxHealth;
+        public int health;
+        public int attackDamage;
     }
 }

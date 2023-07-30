@@ -11,4 +11,7 @@ mergeInto(LibraryManager.library, {
   FinishRun: function () {
     window.dispatchReactUnityEvent("FinishRunFromUnity");
   },
+  Upgrade: function (cardId, slotId) {
+    window.dispatchReactUnityEvent("UpgradeFromUnity", cardId, slotId);
+  },
 });

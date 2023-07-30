@@ -8,6 +8,8 @@ namespace Extracto
     {
         private Player _player;
         private Run _run;
+
+        [SerializeField] private string testJson;
         
         [Inject]
         public void Construct(Player player, Run run)
@@ -28,6 +30,15 @@ namespace Extracto
             Debug.Log(runDataJson);
             RunData runData = JsonConvert.DeserializeObject<RunData>(runDataJson);
             _run.RunData = runData;
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                RunData runData = JsonConvert.DeserializeObject<RunData>(testJson);
+                _run.RunData = runData;
+            }
         }
     }
 }

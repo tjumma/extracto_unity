@@ -1,7 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_Extracto/UI/UICharacterStyle.uss?fileID=7433441132597879392&amp;guid=6870b4022ef80430f9dd3e28700db5a7&amp;type=3#UICharacterStyle" />
     <ui:VisualElement name="character-screen" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); display: none;">
-        <ui:ProgressBar value="100" name="cooldown-progress-bar" class="cooldown-pb" style="height: 50px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 10px;" />
-        <ui:ProgressBar value="100" name="health-progress-bar" class="health-pb" style="height: 50px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+        <ui:ProgressBar value="100" name="cooldown-progress-bar" class="cooldown-pb" style="height: 100px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 10px;">
+            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="cooldown-label" style="position: absolute; align-self: center; justify-content: center; align-items: center; height: 100px; -unity-text-align: middle-center; font-size: 50px; -unity-font-style: bold;" />
+        </ui:ProgressBar>
+        <ui:ProgressBar value="100" name="health-progress-bar" class="health-pb" style="height: 100px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 10px;">
+            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="health-label" style="position: absolute; align-self: center; justify-content: center; align-items: center; height: 100px; -unity-text-align: middle-center; font-size: 50px; -unity-font-style: bold;" />
+        </ui:ProgressBar>
+        <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="damage-label" style="position: relative; align-self: center; justify-content: center; align-items: center; height: 100px; -unity-text-align: middle-center; font-size: 50px; -unity-font-style: bold; background-color: rgb(103, 103, 103); width: 100%;" />
     </ui:VisualElement>
 </ui:UXML>

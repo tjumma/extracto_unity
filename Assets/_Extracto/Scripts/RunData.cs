@@ -7,6 +7,8 @@ namespace Extracto
     public class RunData
     {
         public int score;
+        public int experience;
         public List<CharacterInfo> slots;
+        public List<CardInfo> cards;
     }
 }

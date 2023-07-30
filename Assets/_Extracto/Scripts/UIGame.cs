@@ -64,6 +64,7 @@ namespace Extracto
         private void OnRunDataUpdated(RunData runData)
         {
             _scoreLabel.text = $"Score: ${runData.score}";
+            _experienceLabel.text = $"Exp: ${runData.experience}";
         }
 
         private void OnFinishRunButtonClicked()
